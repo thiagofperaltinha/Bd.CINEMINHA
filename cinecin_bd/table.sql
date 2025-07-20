@@ -97,3 +97,9 @@ CREATE TABLE Venda (
     funcionario_cpf VARCHAR(11) REFERENCES Funcionario(cpf),
     ingresso_id INT PRIMARY KEY REFERENCES Ingresso(id)
 );
+
+-- Tabela : Compra
+CREATE TABLE COMPRA (
+    cliente_cpf VARCHAR(11) REFERENCES Cliente(cpf)
+    ingresso_id INT PRIMARY KEY REFERENCES Ingresso(id)
+)
