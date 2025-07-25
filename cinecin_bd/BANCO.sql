@@ -1,17 +1,3 @@
--- DROP TABLES (ordem para não ter problema de FK)
-DROP TABLE IF EXISTS Transacao CASCADE;
-DROP TABLE IF EXISTS Ingresso CASCADE;
-DROP TABLE IF EXISTS Sessao CASCADE;
-DROP TABLE IF EXISTS Sala CASCADE;
-DROP TABLE IF EXISTS Filme CASCADE;
-DROP TABLE IF EXISTS Dependente CASCADE;
-DROP TABLE IF EXISTS Gerencia CASCADE;
-DROP TABLE IF EXISTS Gerente CASCADE;
-DROP TABLE IF EXISTS Atendente CASCADE;
-DROP TABLE IF EXISTS Funcionario CASCADE;
-DROP TABLE IF EXISTS Cliente CASCADE;
-DROP TABLE IF EXISTS Pessoa CASCADE;
-
 -- CREATE TABLES
 
 CREATE TABLE Pessoa (
@@ -123,12 +109,14 @@ INSERT INTO Pessoa (cpf, nome, telefone, email) VALUES
 ('78901234567', 'Gabriela Dias', '81933333333', 'gabriela.dias@gmail.com'),
 ('89012345678', 'Henrique Borges', '81922222222', 'henrique.borges@gmail.com'),
 ('56789546632', 'Murilo Pedrosa', '81445255588', 'Pedrozinha@gmail.com');
+('99999999990', 'Cliente Sem Ingresso', '81999900000', 'cliente.sem@email.com')
 
 -- CLIENTE
 INSERT INTO Cliente (cpf) VALUES 
 ('12345678901'),
 ('23456789012'),
 ('56789012345'),
+('99999999990'),
 ('67890123456');
 
 -- FUNCIONARIO
