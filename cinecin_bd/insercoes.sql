@@ -15,7 +15,14 @@ INSERT INTO Cliente (cpf) VALUES
 ('12345678901'),
 ('23456789012'),
 ('56789012345'),
-('67890123456');
+('67890123456'),
+('90123456789'),
+('01234567890'),
+('31415926535'),
+('27182818284'),
+('16180339887'),
+('14142135623'),
+('17320508075');
 
 -- FUNCIONARIO
 INSERT INTO Funcionario (cpf, salario) VALUES 
@@ -31,21 +38,24 @@ INSERT INTO Atendente (cpf, chave_caixa) VALUES
 ('78901234567', 'CX002'),
 ('56789546632', 'CX003');
 
-
 -- GERENTE
 INSERT INTO Gerente (cpf, cargo_gerencial) VALUES 
 ('45678901234', 'Coordenador de Atendimento'),
+('22334455667', 'Gerente Geral'),
 ('89012345678', 'Supervisor Operacional');
 
 -- GERENCIA
 INSERT INTO Gerencia (gerente_cpf, atendente_cpf) VALUES 
 ('45678901234', '34567890123'),
+('22334455667', '11223344556'),
 ('89012345678', '78901234567');
 
 -- DEPENDENTE
 INSERT INTO Dependente (nome, idade, parentesco, funcionario_cpf) VALUES 
 ('Lucas Rocha', 10, 'Filho', '45678901234'),
 ('Paula Rocha', 8, 'Filha', '45678901234'),
+('Joana Martins', 5, 'Filha', '11223344556'),
+('José Eduardo', 63, 'Pai', '22334455667'),
 ('Rafael Borges', 12, 'Filho', '89012345678');
 
 -- FILME
@@ -53,21 +63,36 @@ INSERT INTO Filme (titulo, duracao, classificacao, genero, versao) VALUES
 ('Quarteto Fantástico', '02:16:00', '16', 'Ação', 'Legendado'),
 ('Como Treinar o seu Dragão', '01:40:00', 'L', 'Animação', 'Dublado'),
 ('Oppenhaimer', '03:00:00', '18', 'Ficção', 'Legendado'),
-('Superman', '02:10:00', '14', 'Ação', 'Dublado');
+('Superman', '02:10:00', '14', 'Ação', 'Dublado'),
+('Lilo e Stitch', '01:25:00', 'L', 'Animação', 'Dublado'),
+('Barbie', '01:54:00', '12', 'Comédia', 'Legendado'),
+('Homem-Aranha: Através do Aranhaverso', '02:20:00', '10', 'Animação', 'Dublado');
 
 -- SALA
 INSERT INTO Sala (numero_identificador, capacidade, tipo_de_exibicao, classificacao, super_tela, tela_normal) VALUES 
 (1, 100, '3D', 'VIP', TRUE, FALSE),
 (2, 80, '2D', 'COMUM', FALSE, TRUE),
 (3, 120, '3D', 'VIP', TRUE, FALSE),
-(4, 60, '2D', 'COMUM', FALSE, TRUE);
+(4, 60, '2D', 'COMUM', FALSE, TRUE),
+(5, 150, 'IMAX', 'VIP', TRUE, FALSE),
+(6, 90, '2D', 'COMUM', FALSE, TRUE);
 
 -- SESSAO
 INSERT INTO Sessao (data, horario, sala_id, filme_id) VALUES 
 ('2025-07-20', '18:00:00', 1, 1),
+('2025-07-20', '18:00:00', 2, 2),
+('2025-07-20', '18:30:00', 3, 4),
 ('2025-07-20', '16:00:00', 2, 2),
+('2025-07-21', '18:00:00', 1, 5),
 ('2025-07-21', '19:00:00', 3, 3),
-('2025-07-21', '14:00:00', 4, 4);
+('2025-07-21', '19:45:00', 5, 2),
+('2025-07-21', '20:00:00', 4, 4),
+('2025-07-21', '22:00:00', 5, 4),
+('2025-07-22', '17:00:00', 2, 5),
+('2025-07-22', '18:30:00', 6, 6),
+('2025-07-22', '20:00:00', 5, 7),
+('2025-07-23', '21:00:00', 5, 7),
+('2025-07-23', '17:00:00', 6, 5);
 
 -- INGRESSO
 INSERT INTO Ingresso (tipo, assento_letra, assento_numero, sessao_id, cliente_cpf) VALUES 
@@ -80,9 +105,9 @@ INSERT INTO Ingresso (tipo, assento_letra, assento_numero, sessao_id, cliente_cp
 
 -- TRANSACAO
 INSERT INTO Transacao(funcionario_cpf, ingresso_id, cliente_cpf) VALUES 
-('34567890123', 3,'12345678901'),
-('78901234567', 4,'12345678901'),
-('34567890123', 5,'12345678901'),
-('34567890123', 6,'23456789012'),
-('78901234567', 7,'56789012345'),
-('78901234567', 8,'67890123456');
+('34567890123', 3, '12345678901'),
+('78901234567', 4, '12345678901'),
+('34567890123', 5, '12345678901'),
+('34567890123', 6, '23456789012'),
+('78901234567', 7, '56789012345'),
+('78901234567', 8, '67890123456');
