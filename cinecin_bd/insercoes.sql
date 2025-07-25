@@ -8,17 +8,7 @@ INSERT INTO Pessoa (cpf, nome, telefone, email) VALUES
 ('67890123456', 'Fernando Alves', '81944444444', 'fernando.alves@gmail.com'),
 ('78901234567', 'Gabriela Dias', '81933333333', 'gabriela.dias@gmail.com'),
 ('89012345678', 'Henrique Borges', '81922222222', 'henrique.borges@gmail.com'),
-('90123456789', 'Isabela Martins', '81911111111', 'isabela.martins@gmail.com'),
-('01234567890', 'João Pedro', '81900000000', 'joao.pedro@gmail.com'),
-('11223344556', 'Mariana Silva', '81924321860', 'mariana.silva@gmail.com'),
-('22334455667', 'Carlos Eduardo', '81932458712', 'carlos.eduardo@gmail.com'),
-('31415926535', 'Vinícius Santos', '81911112222', 'vinicius.santos@gmail.com'),
-('27182818284', 'Juliana Castro', '81933334444', 'juliana.castro@gmail.com'),
-('16180339887', 'Rodrigo Barros', '81955556666', 'rodrigo.barros@gmail.com'),
-('14142135623', 'Patrícia Nunes', '81977778888', 'patricia.nunes@gmail.com'),
-('17320508075', 'Tiago Martins', '81999990000', 'tiago.martins@gmail.com');
-
-SELECT * FROM Pessoa;
+('56789546632', 'Murilo Pedrosa', '81445255588', 'Pedrozinha@gmail.com');
 
 -- CLIENTE
 INSERT INTO Cliente (cpf) VALUES 
@@ -34,26 +24,19 @@ INSERT INTO Cliente (cpf) VALUES
 ('14142135623'),
 ('17320508075');
 
-SELECT * FROM Cliente;
-
 -- FUNCIONARIO
 INSERT INTO Funcionario (cpf, salario) VALUES 
 ('34567890123', 1512.00),
 ('45678901234', 2500.00),
 ('78901234567', 1512.00),
 ('89012345678', 2000.00),
-('11223344556', 1800.00),
-('22334455667', 2200.00);
-
-SELECT * FROM Funcionario;
+('56789546632', 1512.00);
 
 -- ATENDENTE
 INSERT INTO Atendente (cpf, chave_caixa) VALUES 
 ('34567890123', 'CX001'),
 ('78901234567', 'CX002'),
-('11223344556', 'CX003');
-
-SELECT * FROM Atendente;
+('56789546632', 'CX003');
 
 -- GERENTE
 INSERT INTO Gerente (cpf, cargo_gerencial) VALUES 
@@ -61,15 +44,11 @@ INSERT INTO Gerente (cpf, cargo_gerencial) VALUES
 ('22334455667', 'Gerente Geral'),
 ('89012345678', 'Supervisor Operacional');
 
-SELECT * FROM Gerente;
-
 -- GERENCIA
 INSERT INTO Gerencia (gerente_cpf, atendente_cpf) VALUES 
 ('45678901234', '34567890123'),
 ('22334455667', '11223344556'),
 ('89012345678', '78901234567');
-
-SELECT * FROM Gerencia;
 
 -- DEPENDENTE
 INSERT INTO Dependente (nome, idade, parentesco, funcionario_cpf) VALUES 
@@ -78,8 +57,6 @@ INSERT INTO Dependente (nome, idade, parentesco, funcionario_cpf) VALUES
 ('Joana Martins', 5, 'Filha', '11223344556'),
 ('José Eduardo', 63, 'Pai', '22334455667'),
 ('Rafael Borges', 12, 'Filho', '89012345678');
-
-SELECT * FROM Dependente;
 
 -- FILME
 INSERT INTO Filme (titulo, duracao, classificacao, genero, versao) VALUES 
@@ -91,8 +68,6 @@ INSERT INTO Filme (titulo, duracao, classificacao, genero, versao) VALUES
 ('Barbie', '01:54:00', '12', 'Comédia', 'Legendado'),
 ('Homem-Aranha: Através do Aranhaverso', '02:20:00', '10', 'Animação', 'Dublado');
 
-SELECT * FROM Filme;
-
 -- SALA
 INSERT INTO Sala (numero_identificador, capacidade, tipo_de_exibicao, classificacao, super_tela, tela_normal) VALUES 
 (1, 100, '3D', 'VIP', TRUE, FALSE),
@@ -101,8 +76,6 @@ INSERT INTO Sala (numero_identificador, capacidade, tipo_de_exibicao, classifica
 (4, 60, '2D', 'COMUM', FALSE, TRUE),
 (5, 150, 'IMAX', 'VIP', TRUE, FALSE),
 (6, 90, '2D', 'COMUM', FALSE, TRUE);
-
-SELECT * FROM Sala;
 
 -- SESSAO
 INSERT INTO Sessao (data, horario, sala_id, filme_id) VALUES 
@@ -121,36 +94,20 @@ INSERT INTO Sessao (data, horario, sala_id, filme_id) VALUES
 ('2025-07-23', '21:00:00', 5, 7),
 ('2025-07-23', '17:00:00', 6, 5);
 
-SELECT * FROM Sessao;
-
 -- INGRESSO
 INSERT INTO Ingresso (tipo, assento_letra, assento_numero, sessao_id, cliente_cpf) VALUES 
-('Inteira', 'A', 1, 1, '12345678901'),
+('Inteira', 'A', 1, 1, '67890123456'),
 ('Meia-entrada', 'B', 2, 2, '23456789012'),
 ('Inteira', 'C', 5, 3, '56789012345'),
-('Meia-entrada', 'D', 10, 4, '67890123456'),
-('Inteira', 'E', 6, 1, '56789012345'),
-('Meia-entrada', 'F', 8, 3, '01234567890'),
-('Meia-entrada', 'F', 9, 3, '01234567890'),
-('Inteira', 'G', 10, 5, '90123456789'),
-('Inteira', 'I', 20, 7, '56789012345'),
-('Meia-entrada', 'J', 25, 8, '67890123456'),
-('Meia-entrada', 'A', 2, 1, '31415926535'),
-('Inteira', 'A', 3, 1, '27182818284'),
-('Inteira', 'A', 4, 1, '27182818284'),
-('Meia-entrada', 'B', 1, 3, '12345678901'),
-('Meia-entrada', 'B', 2, 3, '12345678901'),
-('Inteira', 'C', 1, 6, '14142135623'),
-('Meia-entrada', 'C', 2, 6, '14142135623'),
-('Inteira', 'D', 1, 10, '56789012345'),
-('Meia-entrada', 'D', 2, 10, '01234567890'),
-('Meia-entrada', 'D', 3, 10, '01234567890'),
-('Meia-entrada', 'E', 1, 12, '17320508075'),
-('Inteira', 'E', 2, 12, '17320508075'),
-('Inteira', 'F', 1, 13, '31415926535'),
-('Meia-entrada', 'F', 2, 13, '67890123456'),
-('Meia-entrada', 'G', 1, 14, '27182818284'),
-('Inteira', 'G', 2, 14, '27182818284'),
-('Inteira', 'G', 3, 14, '27182818284');
+('Meia-entrada', 'D', 10, 4, '12345678901'),
+('Inteira', 'E', 6, 1, '12345678901'),
+('Meia-entrada', 'F', 8, 3, '12345678901');
 
-SELECT * FROM Ingresso;
+-- TRANSACAO
+INSERT INTO Transacao(funcionario_cpf, ingresso_id, cliente_cpf) VALUES 
+('34567890123', 3, '12345678901'),
+('78901234567', 4, '12345678901'),
+('34567890123', 5, '12345678901'),
+('34567890123', 6, '23456789012'),
+('78901234567', 7, '56789012345'),
+('78901234567', 8, '67890123456');

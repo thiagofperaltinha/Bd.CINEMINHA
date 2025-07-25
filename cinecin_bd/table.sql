@@ -44,7 +44,6 @@ CREATE TABLE Gerencia (
     PRIMARY key (gerente_cpf, atendente_cpf)
 );
 
-
 -- Tabela: Filme
 CREATE TABLE Filme (
     id SERIAL PRIMARY KEY,
@@ -93,7 +92,9 @@ CREATE TABLE Ingresso (
 );
 
 -- Tabela: Venda
-CREATE TABLE Venda (
+CREATE TABLE Transacao (
+    id SERIAL PRIMARY KEY,
     funcionario_cpf VARCHAR(11) REFERENCES Funcionario(cpf),
-    ingresso_id INT PRIMARY KEY REFERENCES Ingresso(id)
+    ingresso_id INT UNIQUE REFERENCES Ingresso(id),
+    cliente_cpf VARCHAR(11) REFERENCES Cliente(cpf)
 );
