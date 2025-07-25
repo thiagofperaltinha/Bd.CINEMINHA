@@ -19,6 +19,10 @@ async function consultas_principais(){
         console.log('TABELA DE ATENDENTES')
         console.table(atendente.rows)
 
+        const gerente = await pool.query('SELECT * FROM Gerente')
+        console.log('TABELA DE GERENTES')
+        console.table(gerente.rows)
+
         const ingresso = await pool.query('SELECT * FROM Ingresso')
         console.log('TABELA DE INGRESSO')
         console.table(ingresso.rows)
@@ -200,17 +204,19 @@ async function consultas_elaboradas() {
         `)
         console.log('FILMES COM MAIS DE UMA SESSÕES')
         console.table(filmes_multiplas_sessoes.rows)
-
-        const clientes_sem_ingressos = await pool.query(`
-            SELECT p.nome
-            FROM Pessoa p
-            JOIN Cliente c ON c.cpf = p.cpf
-            LEFT JOIN Ingresso i ON i.cliente_cpf = c.cpf
-            WHERE i.id IS NULL;
+        
+        const cliente_0 = await pool.query(`
+        SELECT p.nome, p.cpf
+        FROM Pessoa p
+        JOIN Cliente c ON c.cpf = p.cpf
+        WHERE p.cpf NOT IN (
+            SELECT i.cliente_cpf FROM Ingresso i
+        );
         `)
-        console.log('CLIENTES QUE NUNCA COMPRARAM INGRESSOS')
-        console.table(clientes_sem_ingressos.rows)
+        console.log('TABELA DE CLIENTES QUE NÃO COMPRARAM INGRESSO')
+        console.table(cliente_0.rows)
 
+    
         const filmes_multiplas_salas = await pool.query(`
             SELECT f.titulo, COUNT(DISTINCT s.sala_id) AS salas_diferentes
             FROM Filme f
