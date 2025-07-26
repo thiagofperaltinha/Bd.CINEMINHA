@@ -20,4 +20,6 @@ Antes de rodar o projeto, você precisa ter instalado:
 git clone https://github.com/thiagofperaltinha/Bd.CINEMINHA.git
 cd Bd.CINEMINHA
 npm install
-node server.js
+DIGITE node.js para EXECUTAR
+
+
